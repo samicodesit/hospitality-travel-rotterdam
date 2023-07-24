@@ -1,41 +1,7 @@
 import React from 'react'
-import drinksImage from '../assets/drinks.jpg';
 import { styled } from 'styled-components';
 
 import LocationIcon from '../assets/location.svg';
-import Burcu from '../assets/burcu.jpg';
-import Adil from '../assets/adil.png';
-
-
-const StyledArticle = styled.article `
-    background: url('${drinksImage}');
-    max-width: 330px;
-    min-width: 250px;
-    height: 400px;
-    position: relative;
-    background-size: cover;
-    background-position: left;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    flex-grow: 1;
-
-    &:: after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
-    }
-
-    @media only screen and (max-width: 500px) {
-        flex: auto;
-        margin: 20px;
-    }
-
-    // @media only screen and (max-width: 990px) {
-    // }
-`;
 
 const CardContent = styled.div`
     position: absolute;
@@ -83,27 +49,6 @@ const CardSubtitleTwo = styled.span`
     font-size: 14px;
 `;
 
-const CardAvatarSecondary = styled.div`
-    border-radius: 50%;
-    height: 55px;
-    width: 55px;
-    border: 2px solid white;
-    color: white;
-    top: 30px;
-    left: 20px;
-    position: absolute;
-    background-image: url('${Adil}');
-    background-size: cover;
-    background-positiion: center;
-    z-index: 30;
-`;
-
-const CardAvatarMain = styled(CardAvatarSecondary)`
-    background-image: url('${Burcu}');
-    left: 60px;
-    z-index; 20;
-`;
-
 const CardBadge = styled.div`
     background-color: #ff5252;
     display: inline-block;
@@ -118,25 +63,82 @@ const CardBadge = styled.div`
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `;
 
-const EventCard = () => {
-  return (
+const EventCard = ({ event: { free, day, month, location, time, title, expectingPeopleMoreThan, mainHostImage, hostsImages, image } }) => {
+    const StyledArticle = styled.article `
+        background: url('${image}');
+        max-width: 330px;
+        min-width: 250px;
+        height: 400px;
+        position: relative;
+        background-size: cover;
+        background-position: left;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        flex-grow: 1;
+
+        &:: after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+        }
+
+        @media only screen and (max-width: 500px) {
+            flex: auto;
+            margin: 20px;
+        }
+    `;
+
+    
+    const CardAvatarSecondary = styled.div`
+        border-radius: 50%;
+        height: 55px;
+        width: 55px;
+        border: 2px solid white;
+        color: white;
+        top: 30px;
+        left: 20px;
+        position: absolute;
+        background-image: ${props => `url('${props.img}')`};
+        background-size: cover;
+        background-positiion: center;
+        z-index: 30;
+    `;
+
+    const CardAvatarMain = styled(CardAvatarSecondary)`
+        background-image: url('${mainHostImage}');
+        left: 60px;
+        z-index; 20;
+    `;  
+
+    return (
     <StyledArticle>
-        <CardBadge><span>Free</span></CardBadge>
+        {
+            free && (
+                <CardBadge><span>Free</span></CardBadge>
+            )
+        }
         <CardDate>
-            27 <br /> <span>Jul</span>
+            {day} <br /> <span>{month}</span>
         </CardDate>
-        <CardAvatarSecondary />
+        {
+            hostsImages.map(host => (
+                <CardAvatarSecondary img={host} />
+            ))
+        }
         <CardAvatarMain />
         <CardContent>
             <CardSubtitleOne>
                 <img style={{ width: '10px', marginRight: '4px' }} src={LocationIcon} />
-                <span>Haagse Bluf, 20:00</span>
+                <span>{location}, {time}</span>
             </CardSubtitleOne>
             <CardTitle>
-                Weekly Social Drinks
+                {title}
             </CardTitle>
             <CardSubtitleTwo>
-                Expecting +20 people
+                Expecting +{expectingPeopleMoreThan} people
             </CardSubtitleTwo>
         </CardContent>
     </StyledArticle>

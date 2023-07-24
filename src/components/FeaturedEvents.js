@@ -2,6 +2,25 @@ import React from 'react'
 import EventCard from './EventCard'
 import { styled } from 'styled-components'
 
+import Burcu from '../assets/burcu.jpg'
+import Adil from '../assets/adil.png'
+import Drinks from '../assets/drinks.jpg'
+
+const events = [
+  {
+    title: 'Weekly Social Drinks',
+    mainHostImage: Burcu,
+    hostsImages: [Adil],
+    day: '27',
+    month: 'Jul',
+    image: Drinks,
+    location: 'Haagse Bluf',
+    time: '20:00',
+    free: true,
+    expectingPeopleMoreThan: '20'
+  }
+]
+
 const EventsContainer = styled.div`
   display: flex;
   column-gap: 12px;
@@ -40,9 +59,11 @@ const FeaturedEvents = () => {
     <StyledSection>
     <FeaturedEventsTitle>Happening this week</FeaturedEventsTitle>
       <EventsContainer>
-          <EventCard />
-          <EventCard />
-          <EventCard />
+          {
+            events.map(event => (
+                <EventCard event={event} />
+            ))
+          }
       </EventsContainer>
     </StyledSection>
   )
