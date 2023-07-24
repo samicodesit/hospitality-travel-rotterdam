@@ -9,12 +9,14 @@ import Adil from '../assets/adil.png';
 
 const StyledArticle = styled.article `
     background: url('${drinksImage}');
-    width: 330px;
+    max-width: 330px;
+    min-width: 250px;
     height: 400px;
     position: relative;
     background-size: cover;
     background-position: left;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    flex-grow: 1;
 
     &:: after {
         content: "";
@@ -25,6 +27,14 @@ const StyledArticle = styled.article `
         height: 100%;
         background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
     }
+
+    @media only screen and (max-width: 500px) {
+        flex: auto;
+        margin: 20px;
+    }
+
+    // @media only screen and (max-width: 990px) {
+    // }
 `;
 
 const CardContent = styled.div`
@@ -42,11 +52,13 @@ const CardDate = styled.div`
     text-transform: uppercase;
     background: white;
     border-radius: 12px;
-    text-align: center;
     font-size: 12px;
     font-weight: bold;
     z-index: 4;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     span {
         font-weight: normal;

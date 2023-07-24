@@ -22,7 +22,7 @@ const StyledMain =  styled.main`
         z-index: 2;
     }
 
-    @media only screen and (max-width: 500px) {
+    @media only screen and (max-width: 825px) {
       height: auto;
     }
 `;
@@ -37,9 +37,10 @@ const MainContainer = styled.div`
     flex-direction: column;
     height: 100vh;
 
-    @media only screen and (max-width: 500px) {
+    @media only screen and (max-width: 825px) {
       height: auto;
       padding-bottom: 40px;
+      padding-top: calc(10px + var(--header-height-desktop));
     }
 `;
 
@@ -50,7 +51,7 @@ const CTASection = styled.section`
     flex: 1;
     align-items: center;
 
-    @media only screen and (max-width: 500px) {
+    @media only screen and (max-width: 825px) {
       padding: 30px 0 12px 0;
     }
 `
