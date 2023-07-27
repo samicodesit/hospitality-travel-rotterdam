@@ -25,7 +25,7 @@ const EventsContainer = styled.div`
   display: flex;
   column-gap: 12px;
   row-gap: 20px;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
 
@@ -46,6 +46,7 @@ const FeaturedEventsTitle = styled.h2`
   color: var(--dark-green);
   font-size: 36px;
   margin-top: 8px;
+  text-align: center;
 
   @media only screen and (max-width: 500px) {
     font-size: 26px;
