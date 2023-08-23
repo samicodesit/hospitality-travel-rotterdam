@@ -1,5 +1,5 @@
 import React from 'react'
-import { styled } from 'styled-components'
+import styled from 'styled-components';
 import AboutSectionBackground from '../assets/about-section.jpeg';
 import DownArrow from '../assets/down-arrow-svgrepo-com.svg';
 

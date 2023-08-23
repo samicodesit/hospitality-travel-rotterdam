@@ -17,7 +17,7 @@ const events = [
     location: 'Haagse Bluf',
     time: '20:00',
     free: true,
-    expectingPeopleMoreThan: '20'
+    expectingPeopleMoreThan: 20
   }
 ]
 
