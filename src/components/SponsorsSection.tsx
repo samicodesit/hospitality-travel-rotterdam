@@ -6,11 +6,6 @@ import CharliesLogo from '../assets/charlies.png';
 
 const StyledSection = styled.section`
     background-color: #003472;
-    height: 167px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 40px;
     padding: 12px 24px;
 `;
 
@@ -37,13 +32,36 @@ const Charlies = styled(Sponsor)`
     background-image: url('${CharliesLogo}');
 `;
 
+const SponsorsTitle = styled.h2`
+    font-family: 'League Gothic';
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+`;
+
+const SponsorsIconsContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 40px;
+`;
+
 const SponsorsSection = () => {
   return (
+    <>
     <StyledSection>
-        <Bluf />
-        <ContainerBarNoord />
-        <Charlies />
+        <SponsorsTitle>
+            Our Partners
+        </SponsorsTitle>
+        <SponsorsIconsContainer>
+            <Bluf />
+            <ContainerBarNoord />
+            <Charlies />
+        </SponsorsIconsContainer>
     </StyledSection>
+    </>
   )
 }
 

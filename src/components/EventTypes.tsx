@@ -4,6 +4,7 @@ import Weekly from '../assets/weekly.jpg';
 import Monthly from '../assets/monthly.jpg';
 import Boardgames from '../assets/boardgames.jpg';
 import Trips from '../assets/trips.jpg';
+import Pub from '../assets/pub.jpg';
 import Pattern from '../assets/pattern.svg';
 import OpenInNewIcon from '../assets/open-in-new.svg.png';
 
@@ -21,6 +22,7 @@ const EventsContainer = styled.div`
     display: flex;
     justify-content: space-between;
     position: relative;
+    column-gap: 10px;
 
     @media only screen and (max-width: 500px) {
         flex-direction: column;
@@ -72,6 +74,9 @@ const BoardgamesCard = styled(EventCard)`
 const TripsCard = styled(EventCard)`
     background-image: url('${Trips}');
 `;
+const PubcrawlCard = styled(EventCard)`
+    background-image: url('${Pub}');
+`;
 
 const OpenInNewImage = styled.img`
     width: 40px;
@@ -111,23 +116,28 @@ const EventTypes = () => {
     <EventsSection id="event-types">
         <EventsContainer>
             <WeeklyDrinksCard>
-                <CardText>Weekly social drinks</CardText>
+                <CardText>Weekly Social Drink</CardText>
             </WeeklyDrinksCard>
             <BoardgamesCard>
                 <CardText>
-                    Game nights
+                    Game Time
                 </CardText>
             </BoardgamesCard>
             <MonthlyDrinksCard>
             <CardText>
-                Monthly social drinks
+                Monthly Social Drink
             </CardText>
             </MonthlyDrinksCard>
             <TripsCard>
             <CardText>
-                Weekend trips
+                Weekend Trips
             </CardText>
             </TripsCard>
+            <PubcrawlCard>
+            <CardText>
+                Pub Crawls
+            </CardText>
+            </PubcrawlCard>
         </EventsContainer>
 
         <FundTitle href="https://gofund.me/dc2809cb" target='_blank'>
